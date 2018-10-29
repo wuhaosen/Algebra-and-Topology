@@ -1,0 +1,99 @@
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way. HaHa
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathbb{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 540 Homework 2}\\
+    \end{Large}
+    Haosen Wu  / Friday, Spet. 06, 2018
+\end{center}
+%\vspace{10mm}
+
+
+\subsection*{1 **All possible supplement is on the back**}
+\begin{itemize}
+    \item a) $\beta(1/2)=f\circ \alpha(1/2)= f\circ (p(\pi))$, $\beta(0)=f\circ \alpha(0)= f\circ (p(0))$. We realize that path lifting $\tilde{\beta}$ is unique due to Path Lifting Property, then have unique $\tilde{\beta}$ with $p\circ \tilde{\beta}(1/2)= (1,0)$, $p\circ \tilde{\beta}(0)= (-1,0)$. We solve for $\tilde{\beta}(-)$ (which is time, indeed) and get $\tilde{\beta}(1/2)=2k_1\pi$, $\tilde{\beta}(0)=2k_2\pi+\pi$, with $k_1,k_2 \in \Z$, it is then clear we could obtain $n_0=k_1-k_2 \in \Z$
+    
+    \item b) From a) we notice that $p\circ \tilde{\beta}(t-1/2)= p(2\pi t-\pi)$, $p\circ \tilde{\beta}(t)= p(2\pi t)$, again we solve for $\tilde{\beta}(-)$ and by uniqueness of $\tilde{\beta}$ (take $t=0$ we should match points $\tilde{\beta}(1/2),\tilde{\beta}(0)$ of $\tilde{\beta}$ within part a), we get $\tilde{\beta}(t-1/2)=2\pi t-\pi+2k_2\pi$, $\tilde{\beta}(t)=2\pi t+2k_1\pi$. Subtracting $\tilde{\beta}(t)-\tilde{\beta}(t-1/2)=2(k_1-k_2)\pi+\pi = 2n_0\pi+\pi$. Also we have that $\tilde{\beta}(1)=\tilde{\beta}(1/2)+2n_0\pi+\pi=\tilde{\beta}(0)+2(2n_0\pi+\pi)$, thus $\tilde{\beta}(1)\neq\tilde{\beta}(0) $.
+    
+    \item c) To show this we first prove $f:S^1\rightarrow S^1$ is indeed a homotopy equivalence: we have $f\circ f = id_X = id_Y$,     by the theorem in class $f_*: \pi_1(S^1;x_0) \rightarrow \pi_1(S^1;y_0)$ is thus an isomorphism. The map $f_*$ is then non-trivial from that $\pi_1(S^1;x_0) \simeq \Z$, since an isomorphism from $\Z $ to $\Z $ cannot be trivial, otherwise the image $f_* (\Z) $  would collapse to {$e$}. (Can also derive this from part b)
+    
+    \item d) 
+         i) To show null-homotopic, we need to find some $h(S^1)={pt}$, where $pt \in S^1$ this motivates us to find a map connecting $S^1$ and some fixed point $N$. Let $g_t:S^1\rightarrow S^2$ defined as $g_t:(x,y)\rightarrow \frac{((t+1)x,(t+1)y,t)}{(t-1)^2+t^2}$ and compose with $H(x,y,t)=F\circ g_t$ such that $H(x,y,t):S^1\times[0,1]\rightarrow S^1$. Now this map has $H(x,y,0)=f(x,y)$, $H(x,y,1)=F(0,0,1)={pt}$ and is clearly a homotopy. Let us prove: since $H(x,y,t)=F\circ g_t$ is composition of two continuous map, thus $H(x,y,t)$ is continuous .
+        
+         ii) Suppose there exists map $F:S^2 \rightarrow S^1$ such is an antipodal map, its restriction $f:S^1 \rightarrow S^1$ defined as in i) is also an antipodal map, then by c) $f_*:\pi_1(S^1;x_0)\rightarrow\pi_1(S^1;y_0)$ is non-trivial, yet result from i) that $f\simeq const$ suggests that pushout $f_*$ is trivial, we arrive the contradiction.
+        
+    \item e) Suppose such $g$ does not exist, define $F(x,y,z)= \frac{g(x,y,z)-g(-x,-y,-z)}{||g(x,y,z)-g(-x,-y,-z)||}$, we realize that $g(x,y,z)\neq g(-x,-y,-z)$ for any $(x,y,z) \in S^2$, then $F$ does not have singularity. We also realize that map $F$ is composition of vector unitize map and $g(x,y,z)-g(-x,-y,-z)$; both maps are continuous, thus $F$ is a (continuous) map $F:S^2 \rightarrow S^1$, once we recognize image of $F$ is the set of unit vectors. We also notice that $F(-x,-y,-z)=\frac{g(-x,-y,-z)-g(x,y,z)}{||g(-x,-y.-z)-g(x,y,z)||}=-\frac{g(x,y,z)-g(-x,-y,-z)}{||g(x,y,z)-g(-x,-y,-z)||}=-F(x,y,z)$, but then we arrive the contradiction with result in d-ii), therefore there exists pair $(x,y,z),(-x,-y,-z) \in S^2$ such that $g(x,y,z)=g(-x,-y,-z)$.
+    
+    \item f)
+         i) Define $g:S^2\rightarrow \R^2$ by $g(u)=(area(A\cap H_u),area(B\cap H_u))$, notice for such $g$ we have $u\in S^2$ such that $g(u)=g(-u)$ by e), thus $(area(A\cap H_u),area(B\cap H_u))=(area(A\cap H_{-u}),area(B\cap H_{-u}))$, that is, $area(A\cap H_u)=area(A\cap H_{-u})=\frac{1}{2}area(A)$ and $area(B\cap H_u)=area(B\cap H_{-u})=\frac{1}{2}area(B)$.
+         
+         ii) Take such line that is the intersection of $P_u$ and $xy$-plane, we have the desired line, following from the result i). 
+         
+    
+\end{itemize}
+\end{document}

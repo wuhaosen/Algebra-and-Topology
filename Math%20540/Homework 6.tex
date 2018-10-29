@@ -1,0 +1,109 @@
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way. HaHa
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathbb{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 540 Homework 6}\\
+    \end{Large}
+    Haosen Wu  / Thur, Spet. 27, 2018
+\end{center}
+%\vspace{10mm}
+
+\subsection*{1}
+Consider lifting 
+    \[
+    \xymatrix{
+    & & \Tilde{X} \ar[d]^{p}&  \\
+    & Y \ar[r]^{f}\ar[ur]^{\Tilde{f}} & X
+    }
+    \]
+The fundamental group of Y being finite suggests that, since $\pi_1(X)=\Z$, the pushout $f_*$ (as homomorphism) has to be trivial, thus we have desired lifting $\tilde{f}$. But $\tilde{X}=\R$ suggests that $\tilde{f}$ is null-homotopic, thus $f=p\circ \tilde{f}$ is null-homotopic as well. 
+
+\subsection*{2}
+Let $U$ be an open ball in $X$ and $i$ be the inclusion map
+    \[
+    \xymatrix{
+    & & \Tilde{X} \ar[d]^{p}&  \\
+    & U \ar[r]^{i}\ar[ur]^{\Tilde{i}} & X
+    }
+    \]
+Now we have the universal cover of $X$, consider lifting $\tilde{i}$ in $\Tilde{X}$, it always exists since $i$ is merely inclusion. Suppose we do not have semilocally simply connectedness, then we have a contradiction, since this is equivalent to say $i_*(\pi_1(U)) \not\subset p_*(\pi_1(\tilde{X}))$, therefore $X$ has to be semilocally simply connected.
+
+\subsection*{3}
+Consider family of ball $\{B_r(0)\}_r$, each $B_r(0)$ contains a loop, the map $\pi_1(B_r(0),0)\rightarrow\pi_1(X,0)$ is non-trivial (guaranteed by map $r_n$ in homework 4.3.a),  which translates to non-semilocally simply connectedness.    
+
+\subsection*{4}
+\begin{enumerate}
+    \item Let $f(\tilde{x})=[p\circ \tilde{\alpha}]$, path class independent of choice of elements in $p_*(\pi_1(\tilde{X})) $, as if we pick $\alpha=p\circ \tilde{\alpha} \in [p\circ \tilde{\alpha}]$, the concatenation with $\beta$ which $\beta \in p_*(\pi_1(\tilde{X})) $, $\beta*\alpha$ has its lift $\tilde{\beta}*\tilde{\alpha}$ a fixed end since $\tilde{\beta}$ is necessarily a loop (A theorem in class). This proves the well-definedness. 
+    \item $f$ is surjective since $\tilde{X}$ is path-connected thus we can always find the path connecting $\tilde{x_0}$ and $p^{-1}(x_0)$.
+    \item Suppose $f(\tilde{y})=[p\circ \tilde{\beta}]$, once representatives $p\circ \tilde{\alpha} \neq p\circ \tilde{\beta}$, that is, $[\alpha*\beta^{-1}] \not\in p_*(\pi_1(\tilde{X}))$, $\alpha*\beta^{-1}$ is thus not  a loop. We can conclude that $\tilde{x}\neq \tilde{y}$. 
+\end{enumerate}
+Now the bijectivity proves the claim of correspondence of fiber counts - image index.
+
+\end{document}
+
+\frac{\pi}{}

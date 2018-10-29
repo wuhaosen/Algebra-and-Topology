@@ -1,0 +1,99 @@
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way. HaHa
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathbb{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 540 Homework 4}\\
+    \end{Large}
+    Haosen Wu  / Wednesday, Spet. 19, 2018
+\end{center}
+%\vspace{10mm}
+
+\subsection*{Fundamental Group I}
+  Recall SvK Theorem I. We have deformation retract diagrams as Figure $1$ for $\R^1,\R^2,\R^n$ for $3\leq n$ cases, labeled as $X_1,X_2,X_n$. $\R^1$ case is like line with $p$-divides, $\R^2$ case is like $B^2$ with $p$-holes, $R^n$ for $3\leq n$ deserves an explanation (intuitively we can "move points away"): 
+    We reduce to that, for $\{U_i\} \in X_n$ be an open covering with following properties:\\
+    \indent a) There exists a point $x_0$ such that $x_0$ ϵ $\{U_i\}$ for all $i$.\\
+    \indent b) Each $\{U_i\}$ is simply connected.\\
+    \indent c) If $i\neq j$, then $U_i \cap U_j$ is path-connected.\\
+    Therefore our $X_n$ is simply connected. 
+  (Another way is $R^n$  minus $p$ points is homotopy equivalent to a wedge sum of $p$ copies of $S^{n−1}$, c.f. Figure $1$). Thus correspondingly, for $X_1$ since the only path-connected space is line, $\pi_1(X_1)=1$;  for $X_2$ by diagram we proceed induction on $p$: for solely $1$ p we have $\pi_1({X_2}_1)=\pi_1({X_2}_2)=\Z$ and $\pi_1({X_2}_1\cap {X_2}_2)=1$ then we see all maps $i:\pi_1({X_2}_1\cap {X_2}_2) \rightarrow \pi_1({X_2}_i)$ are trivial. The amalgamated product degenerates to free product. Thus $\pi_1({X_2}_1\cup {X_2}_2)=\Z*\Z$. for $n$ p we have assume $\pi_1(\bigcup {X_2}_i)=*_n\Z$, we also recognize  $\pi_1((\bigcup_n {X_2}_i)\cap {X_2}_{n+1})=1$, and amalgamated product degenerates again thus $\pi_1((\bigcup_{n+1} {X_2}_i)=*_{n+1}\Z$; for $X_n$ since the space is simply and path connected we get $\pi_1(X_{2})=1$ immediately. 
+  
+\subsection*{Fundamental Group II}
+  Recall SvK Theorem II.\\
+  Note we have deformation retract from $X_1$ to Figure-$8$ (as Figure $2$) thus we have $\pi_1(X_1)=\Z*\Z$, $\pi_1(X_2)=1$, more importantly, $X_1\cap X_2$ is path connected, since it is the gluing part; we can also find deformation retract of $X_1$ to $X_1\cap X_2$ and $X_2$ to $X_1\cap X_2$.  (cf. Deformation retract in Figure $2$). Thus the colimit is $\pi_1(X_1)*_{\pi_1(X_1\cap X_2)}\pi_1(X_2)=\Z*_{\pi_1(X_1\cap X_2)}\Z$. 
+  
+  Now we proceed to find the relations of generators. We have orientation on $X_1\cap X_2\cong S^1$ as given, name the generator in $\Z$ as $[a]$. Then thus $i_1:\pi_1(X_1\cap X_2) \rightarrow \pi_1(X_1) $ sends $[a]\in \Z \textrm{ to } [ab] \in \Z*\Z$ ; and another map $i_2:\pi_1(X_1\cap X_2) \rightarrow \pi_1(X_2) $ sends $[a]\in \Z \textrm{ to } 1$ (Figure $2$).  So eventually $\Z*_{\pi_1(X_1\cap X_2)}\Z \cong <a,b; ab=1>$. \\�� 
+  
+  Since the self-intersection homotopy connects with $\partial X^1$
+  The manifold is connected sum of two "almost $\R P^2$", a self-intersecting $8$-tube (Figure $2$).
+  
+\subsection*{Hawaiian Ring} 
+    a. Since $X=\cup_n X_n$ we define $r_n$ as given map, the continuity on domain $X_n$ is clear since it is identity, on domain $\neg X_n$ is a constant function$(=0)$; finally on domain $X_n \cap \neg X_n=\{pt\}$ is $0$. Note $X_n \cap \neg X_n=\{pt\}$ is closed thus we can apply pasting lemma here.  \\
+    b. To verify that $\gamma_\epsilon(t)$ is continuous we proceed mainly need to verify it is continuous at $(0,0)$ since when $s\neq 1/n (resp. \frac{1}{n+1})$ the map $\gamma_\epsilon(t)$ is continuous, due to composition of continuous functions.  When $s\rightarrow 1/n (resp. \frac{1}{n+1})$ we have $\gamma_\epsilon(-)\rightarrow (0,0)$, so the limit exists at $s=\frac{1}{n} (resp. \frac{1}{n+1})$ and pasting lemma asserts that our $\gamma_\epsilon(t)$ is continuous everywhere. \\
+    c. Suppose we have $[\gamma_\epsilon] = [\gamma_\epsilon']$ that is $[\gamma_\epsilon] \simeq [\gamma_\epsilon']$ . Consider the pushforward  of continuous map $r_n$, we should have $r_n\circ \gamma_\epsilon \simeq r_n\circ \gamma_\epsilon' $ (by Homework 1.3). This composed path is totally in $X_n$, which is indeed a circle. By theorem in class we know there exists a isomorphism  $p:\pi(X_n;x_0) \rightarrow \Z$, then we expect to have $p(r_n\circ \gamma_\epsilon) = p(r_n\circ \gamma_\epsilon')$. However since we have different $\epsilon \textrm{ and } \epsilon'$, at least one elements in sequences are different, so $p([r_n\circ \gamma_\epsilon])=p(\dots * \Gamma^+ * \Gamma^- * \Gamma^+ *\dots) \neq p(\dots * \Gamma^+ * \Gamma^+ * \Gamma^+ *\dots) = p([r_n\circ \gamma_\epsilon'])$ at least the sign flipped from $-1$ to $1$ as $\Gamma$ flipped, thus we have different image in $\Z$. We arrived at contradiction so  $[\gamma_\epsilon] \neq [\gamma_\epsilon']$ \\ 
+    d. Therefore different sequences $\epsilon, \epsilon'$ produces different homotopy classes, however we have uncountably many $\epsilon, \epsilon'$ that ranges in $\textrm{\{}-1,+1 \textrm{\}} $, therefore we have uncountably many elements in  $\pi_1(X)$. 
+\end{document}
