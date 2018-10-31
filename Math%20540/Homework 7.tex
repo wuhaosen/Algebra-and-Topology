@@ -97,29 +97,35 @@
   (For All Covering) We follow the fashion in Problem 1,  which tells us $n$-sheet covering space is \textit{really} classified by equivalence classes of homomorphisms from $\pi_1(X;x_0)$ to $S_n$. 
 \subsection*{2 & }
     
-    Not fixing F, group $\Z\times\Z$ has following homomorphisms to $S_3$: $|Image|=2$, $\Z/2\times\Z$ embeds in $\Z/2 \leq S_3$; Image=3, $\Z/3\times\Z$ embeds in $\Z/3 \leq S_3$. Thus we have two non-isomorphic (class of) coverings.  
+    By general lemma (with $Id_F$), Group $\Z\times\Z$ has following homomorphisms to $S_3$: As $\pi_1(S^1\times S^1;x_0)=\Z\times\Z$ is abelian,   $\varphi(\alpha)\varphi(\beta)=\varphi(\alpha\beta)=\varphi(\beta\alpha)=\varphi(\beta)\varphi(\alpha)$, and the image of $\Z\times\Z$ has also to be abelian, as in figure 7-2 we have $18$ homomorphisms, or coverings ($Id_F$=fixed isomorphic).
     
-    When fixing F, we talk about: monodromy action inducing homomorphism with $|Image|=1$, we have trivial bundle (with torus structure) covering, this is also indeed the case that fibre element get fixed since it is identity permutation, and we also know within the isomorphism class we could have $3!$ many coverings. 
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{7-2.png}
+    \caption{7-2}
+    \end{figure}
+     
+    When not fixing F, we are talking about: by general lemma the conjugacy class of homomorphisms induced by monodromy tells us the not-fixing-F homomorphisms. We are finding them by looking at \textit{equivalence class of cycles} that commutes. If $\varphi(\alpha)$ map to identity, we can have mapped to identity, 2-cycle and 3-cycle; If $\varphi(\alpha)$ map to 2-cycle, we can have mapped to identity, 2-cycle; If $\varphi(\alpha)$ map to 3-cycle, we can have mapped to identity, itself and another 3-cycle. Therefore in total we have 8 conjugate homomorphisms, or coverings. 
     
 \subsection*{ & 3}    
+    group $\langle a,b; a^2=b^2 \rangle$ has following homomorphisms to $S_3$:   ${\varphi(\alpha)}^2=\varphi(\alpha^2)=\varphi(\beta^2)=\varphi(\beta)^2$, and the image of $\langle a,b; a^2=b^2 \rangle$ has also to be \textit{square-identical}, as in figure 7-3 we have $18$ homomorphisms (surprisingly same), or coverings ($Id_F$=fixed isomorphic).
     
-    When not fixing F, group $K=\langle a,b; a^2=b^2 \rangle$ has following homomorphisms to $S_3$: We need some analysis here, $|Image|=2$, we mapped group $K$ to subgroup  $\Z/2 \leq S_3$. This morphism is possible since we can set first $i_1(1\in \Z)=1\in \Z/2$ and second $i_2(1\in \Z)=1\in \Z/2$ the homomorphism $\varphi$ by juxtaposition. then $\varphi(\langle a,b; a^2=b^2 \rangle)=\langle a; a^2=0 \rangle$ which is precisely $\Z/2 \leq S_3$. Therefore we obtained one class of isomorphic covering. 
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.5]{7-3_update.png}
+    \caption{7-3}
+    \end{figure}
     
-    \[
-    \xymatrix{
-    \Z \ar[r]^{}\ar[dr]^{i_1} & \langle a,b; a^2=b^2 \rangle \ar[d]^{\varphi}&  \Z \ar[l]_{} \ar[dl]_{i_2}\\
-    & \Z/2 \subset S_3 &
-    }
-    \]
+    When not fixing F, we are talking about: by general lemma the conjugacy class of homomorphisms induced by monodromy tells us the not-fixing-F homomorphisms. We are finding them by looking at \textit{equivalence class of cycles} that are also \textit{square-identical}. If $\varphi(\alpha)$ map to identity, we can have mapped to identity, 2-cycle; If $\varphi(\alpha)$ map to 2-cycle, we can have mapped to identity, 2-cycle; If $\varphi(\alpha)$ map to 3-cycle, we can have mapped to identity, itself. Therefore in total we have 6 homomorphisms, or coverings. 
     
-    In the same vein we map $i_1(1\in \Z)=1\in \Z/3$ and second $i_2(1\in \Z)=2\in \Z/3$, which is the only plausible map. Computation shows that such generated $\varphi$ will send first $\varphi(1\in \Z)=1 \in \Z/3$, second $\varphi(1\in \Z)=2 \in \Z/3$, but then first $\varphi((1\in \Z)^2)=2 \in \Z/3$ and second $\varphi((1\in \Z)^2)=(2 \in \Z/3)^2=1 \in \Z/3$. This contradicts with well-defindness of $\varphi$ and relation $a^2=b^2$, therefore, there is no correspond covering.
-    
-    When fixing F, we talk about: $|Image|=1$, we have the trivial bundle (with Klein-bottle structure) covering; this is also the case that fibre elements get fixed since it is identity permutation, and we also know within the isomorphism class we could have $3!$ many coverings (as well in 2).  
     
 \subsection*{ & }     
     Thus we completed 3-sheets covering classification for 2 & 3.
 \subsection*{4}
-    lift $\rho{[\alpha]}(\tilde{x_0})=$NumbNumbNumb. Nice parking lot! 
+    Only need lift (on $\tilde{\alpha(0)}=\tilde{x_0}$, then by unique path lifting, and our $F=\Z$ is infinite: 
+    \\lift $\rho{[\alpha]}(\tilde{x_0})=$One-level-up $x_0$. (Shift $F=\Z$ with One-level-up) 
+    \\lift $\rho{[\beta]}(\tilde{x_0})=$Two-level-up $x_0$. (Shift $F=\Z$ with Two-level-up) 
+    \\lift $\rho{[\gamma]}(\tilde{x_0})=$One-level-down $x_0$. (Shift $F=\Z$  with One-level-down) \\Haha, Nice parking lot! 
 
 \end{document}
 \frac{\pi}{}
