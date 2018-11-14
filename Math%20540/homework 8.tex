@@ -1,0 +1,111 @@
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way. HaHa
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathbb{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 540 Homework 8}\\
+    \end{Large}
+    Haosen Wu  / Thur, Nov.1 , 2018
+\end{center}
+%\vspace{10mm}
+
+\subsection*{1}
+\begin{itemize}
+    \item  We now express  $\delta_i\circ F_j$. We know previously that $\sigma_i:\Delta_{n+1} \rightarrow Y$ as $$\sigma_i(\Delta_{n+1})=H(\sigma(\delta_i(\Delta_{n+1})))=H(\sigma(\delta_i(F(\Delta_{n}))))$$ with triangulated square diagram we observe that $\delta_i\circ F_j$ can be represented as different projections from $(\Delta_{n+1})$, when composing with face map $F_i$, now plug it in: $$\delta_i\circ F_j= (F_{j-1}\times Id_{[0,1]})\circ \delta_{i}, i\leq j-2$$  or $$\delta_i\circ F_j= (F_{j-1}\times Id_{[0,1]})\circ \delta_{i-1}, i \geq j+1$$ or $$\delta_i\circ F_j\textrm{ itself },otherwise$$ when we deal with  $\sigma: \Delta_{n} \rightarrow \Delta_{n}\times \{pt\}$ the expression corresponds to border term $i_0,i_1$ which is given by $$i_0=\sigma_1\circ F_{1},i_1=\sigma_n\circ F_{n}$$. 
+    
+    \item By Hatcher and by above computation, 
+    
+    $$\p K(\sigma)=\sum_{j\leq i} (-1)^i(-1)^j H\circ (\sigma\times Id)\circ \delta_{j}+
+    +\sum_{j\geq i} (-1)^i(-1)^{j+1} H\circ (\sigma\times Id)\circ \delta_{j}$$
+    
+    $$K(\sigma)\p =\sum_{j< i} (-1)^i(-1)^j H\circ (\sigma\times Id)\circ \delta_{j}
+    +\sum_{j> i} (-1)^{i-1}(-1)^j H\circ (\sigma\times Id)\circ \delta_{j}$$
+    
+    The term with $i=j$ in two sums vanishes except $H\circ (\sigma\times Id)\circ \delta_{0}=f\circ\sigma$ and $H\circ (\sigma\times Id)\circ \delta_{n}=-g\circ\sigma$, The term with $i\not= j$ is $-K(\sigma)\p$ by above calculation again. Thus the sum gives that $$\p  K(\sigma)+K(\sigma)\p=C_n(f)-C_n(g)$$
+    
+    \end{itemize}
+    
+\subsection*{2}
+    \begin{itemize}
+        \item We split into two cases: $n\geq1$, from definition it is clear that $\Tilde{C}_n(X)=C_n(X)$, and morphism $\Tilde{\partial}_n(X)=C_n(\partial)$. then accordingly $$\Tilde{H}_n(X)=Ker(\Tilde{\partial}_n)/Im(\Tilde{\partial}_{n+1})=Ker(\partial_n)/Im(\partial_{n+1}={H}_n(X) $$.
+        
+        $n\leq-1$, by convention we know that $H_{-1}(X)=0$, we explicitly compute the module $\Tilde{H}_n(X)$, which $\Tilde{H}_{-1}(X)=Ker(\Tilde{\partial}_{-1})/Im(\Tilde{\partial}_{0})$ and we know that $\Tilde{\partial}_{-1}$ is zero map thus eat entire $\tilde{C}_{-1}(X)=R$. Map $\Tilde{\partial}_{0}$ as defined in problem is epimorphism since we can always find a suitable basis from $C_0(X)$ to map to some $\sum_{i=1}^{k}a_i$. Thus $Im(\Tilde{\partial}_{0})=R$, we have $$ Ker(\Tilde{\partial}_{-1})/Im(\Tilde{\partial}_{0})=R/R=0$$ This proves the claim.
+        
+        We do not have to worry about smaller index homology groups since then $\tilde{C}_n(X)$ is 0 . 
+        
+        \item To show that $\Tilde{H}_0(X)=0$ is equivalent to say that $Ker(\Tilde{\partial}_{0})=Im(\Tilde{\partial}_{1})$. We thus start with two sides inclusion. Notice we have path connected $X$, thus for elements in $Ker(\Tilde{\partial}_{0})$, we know they should have form $$\sum_{i=1}^{k}a_ix_i, a_j=-\sum_{i=1,i \not= j}^{k}a_i$$ which indeed assembly point rays. Rewrite  $\sum_{i=1}^{k}a_ix_i, a_j=-\sum_{i=1,i\not= j}^{k}a_i$ as  $\sum_{i=1,i\not= j}^{k}(a_ix_i-a_ix_j) $ we see that this element is in $Im(\Tilde{\partial}_{1})$, since $\Tilde{\partial}_{1}(\sigma(x_i,x_j))=x_i-x_j$. We thus proved  $$Ker(\Tilde{\partial}_{0})\subset Im(\Tilde{\partial}_{1})$$
+        Then $$Ker(\Tilde{\partial}_{0}) \supset Im(\Tilde{\partial}_{1})$$ follows from that $$\Tilde{\partial}_{0}(x_i-x_j)=1-1=0$$.
+        
+        Therefore we proved two side inclusion, the claim follows.
+        \item
+        Suppose that $X$ has n path connected \textit{components} $X_1,\dots, X_n$. Show that $H_0(X)=R^{n-1}$.k
+        We proceed this by induction, the base case is proved in part ii), now recall $\Tilde{H}_0(X)=Ker(\Tilde{\partial}_0)/Im(\Tilde{\partial}_{1})$ and assume that $\Tilde{H}_0(X)=R^{n-1}$ when $X=\bigsqcup_{i=1}^{n}{x_i}$. When we let $X'=X \sqcup {X_{n+1}} $, the $Im(\Tilde{\partial}_{1})=R$ did not change since it is still $\{x_i-x_j\}$, at the mean while  $Ker(\Tilde{\partial}_0)$ split as $$Ker(\Tilde{\partial}_0)=\bigoplus_{i=1}^{n}{Ker(\Tilde{\partial}_0|X_i)}$$ then $$\Tilde{H}_0(X')=\frac{\bigoplus_{i=1}^{n}Ker(\Tilde{\partial}_0|X_i) \oplus Ker(\Tilde{\partial}_0|X_{n+1})}{Im(\Tilde{\partial}_{1})}=\frac{R^{n}\oplus R}{R}=R^n$$
+        By induction hypothesis thus the relation follows.
+        
+    \end{itemize}
+    
+\end{document}

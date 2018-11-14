@@ -1,0 +1,139 @@
+
+%\documentclass[11pt]{amsproc}
+%\documentclass[11pt]{article}
+\documentclass[11pt]{article}
+%\usepackage{setspace}
+%\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+%\usepackage{accents}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{eucal}
+\usepackage{xypic}
+\usepackage{pdfsync}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{tikz-cd}
+
+
+
+%%\setrightmargin{1in}
+%\setallmargins{1in}
+
+% Titlerule is a FAT ruler
+\newcommand{\titlerule}{\rule{\linewidth}{1.5mm}}
+% For comments in the draft - work in progress
+\newcommand{\betainsert}[2]{\fbox{#1}\marginnote{\textsf{#2}}}
+
+% Notes in the margin are nicer this way. HaHa
+\newcommand{\marginnote}[1]{\marginpar{\scriptsize\raggedright #1}}
+
+
+
+\def\bd{\partial}
+\def\ra{\rightarrow}
+\def\lra{\longrightarrow}
+\def\Z{{\mathbb Z}}
+\def\N{{\mathbb N}}
+\def\R{{\mathbb R}}
+\def\Q{{\mathbb Q}}
+\def\C{{\mathbb C}}
+\def\P{{\mathbb P}}
+\def\K{{\mathbb K}}
+\def\w{\mathcal{W}(E)}
+\def\A{\mathcal{A}}
+\def\B{\mathcal{B}}
+\def\M{\mathcal{M}}
+\def\N{\mathcal{N}}
+\def\p{\partial}
+
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{ques}{Question}
+\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{prob}{Problem}
+\newtheorem{ex}{Example}
+\def\T{\mathbb{T}}
+
+\begin{document}
+\begin{center}
+    \begin{Large} {\bf Math 540 Homework 9, 10?}\\
+    \end{Large}
+    Haosen Wu  / Wed, Nov.14 , 2018
+\end{center}
+%\vspace{10mm}
+
+
+\subsection*{1}
+Some computation and as Hatcher gives: $H$ == commutative diagrams.
+\begin{itemize}
+\end{itemize}
+
+
+\subsection*{2}
+We know the deformation retraction of $A$ and $X$ are corresponding to isomorphic homology modules of $H_{n}(A)=H_{n}(X)$, therefore we adopt the (long) exact sequence given as:
+
+\begin{tikzcd}
+  \cdots \rar   & H_{n+1}(A) \rar & H_{n+1}(X) \rar & H_{n+1}(X,A)
+          \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
+        & H_{n}(A) \rar & H_{n}(X) \rar & H_{n}(X,A)
+          \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
+        & H_{n-1}(A)  \rar & H_{n-1}(X) M \rar & H_{n-1}(X,A) \rar & ...
+\end{tikzcd} 
+
+Now we find $H_{n}(X,A)$: Name $H_{n+1}(A)=H_{n+1}(X)=M$ if dimension is one down then $M^{(1)}$, we have some information: $$ker(H_{n+1}(A)\rightarrow H_{n+1}(X))=Im(0\rightarrow H_{n+1}(A))=0 $$ and $$M/\{0\}=Im(H_{n+1}(A)\rightarrow H_{n+1}(X))=ker(H_{n+1}(X)\rightarrow H_{n+1}(X,A))=M $$
+
+Apply Isomorphism theorem, $$Im(H_{n+1}(A)\rightarrow H_{n+1}(X,A))=ker(H_{n+1}(X,A)\rightarrow H_{n}(A))=\{0\}$$
+Thus $$H_{n+1}(X,A)/\{0\}=Im(H_{n+1}(X,A)\rightarrow H_{n}(A))=ker(H_{n}(A)\rightarrow H_{n}(X))=\{0\}$$
+Eventually we have $$H_{n+1}(X,A)=\{0\}$$.
+
+As our $n$ is arbitrarily chosen, the claim follows. 
+
+
+\subsection*{3 Fun}
+\begin{itemize}
+    \item [a)] map $i_{Y\rightarrow X}$ defines a natural inclusion of chain module $i_{Y\rightarrow X}^*: C_n(Y)\rightarrow C_n(X)$, then they descends to $$\Tilde{i}_{Y\rightarrow X}^*: C_n(Y)/C_n(Z)\rightarrow C_n(X)/C_n(Z)$$; similarly we have $$\Tilde{p}_{Z\rightarrow X}^*: C_n(X)/C_n(Z)\rightarrow C_n(X)/C_n(Y)$$. 
+    
+    Now we need to show that $Im(\tilde{i})=Ker(\tilde{p})$ (though topologically trivial: $Y-Z=(X-Z)-(X-Y)$). We notice that $Im(\tilde{i})=C_n(Y)/C_n(Z)$, and simplices are in linear space (then we just need to show below holds for one simplex).
+    we show $Im(\tilde{i})\subset Ker(\tilde{p})$: pick an element in $[c] \in Im(\tilde{i})$, we have a representative $c=c_Y+c_Z$ where $[c_Z]=0$. Since $X\supset Y$ we also have $C_n(X)/C_n(Z)\supset C_n(Y)/C_n(Z)$, now $$\tilde{p}[c]=\tilde{p}(c_Y+c_Z)=0$$ since $\tilde{p}$ nullifies $C_n(Y)$. \\
+    
+    We show $Im(\tilde{i})\supset Ker(\tilde{p})$: (harder...constructing...)  \\
+    Thus after proof of two side inclusion we are done. 
+    
+    \item[b)] We just consider putting the short exact sequences from a) together and define $f:=\{f_n\}_n$, $g:=\{g_n\}_n$. We only need to show each square in the diagram commutes, then the exactness of chain complexes follows from exactness of each rows. Now the squares commutes since $\tilde{\p}$ still a boundary map, and $\Tilde{i}_{Y\rightarrow X}^*$ is indeed $Id_{Y\rightarrow X}^*:C_n(Y)/C_n(Z)\rightarrow C_n(X|Y)/C_n(Z)$. Then the commutativity follows from original diagram (...Hatcher?)XD
+    
+    \item[c)] We explicitly expand the short exact sequences from b) together then apply snake lemma to obtain the long exact sequence.
+\end{itemize}
+
+
+\subsection*{4 Fun}
+\begin{itemize}
+    \item [a)] We know the deformation retraction of $\R^m-\{x_0\}$ and $\R^n-\{x_0\}$ are corresponding to $S^{m-1}$ and $S^{n-1}$, but the homology modules of $S^{m-1}$ and $S^{n-1}$ are known to be different. If such homeomorphism exists then homology modules as homotopy invariant will be congruent. This reveals a contradiction.
+    
+    \item [b)] Continue the fashion of contradiction, suppose such homeomorphism exists then homology modules $H_{n}(R^m)=H_{n}(R^m)$, therefore also holds for their relative homology  $H_{n}(R^m,\{x_0\})=H_{n}(R^n,\{y_0\})$, since the point itself is a deformation retraction, we thus have $$H_{n}(R^m,\{x_0\})=H_{n}(R^m-\{x_0\},\{x_0\}-\{x_0\})=H_{n}(R^n-\{y_0\},\{y_0\}-\{y_0\})=H_{n}(R^n,\{y_0\})$$ 
+    We notice, therefore $H_{n}(R^m-\{x_0\})=H_{n}(R^n-\{y_0\})$, but this contradicts with the conclusion in the previous statement.
+\end{itemize}
+
+
+\subsection*{5}
+\begin{itemize}
+    \item [a)] the map $\tau_n$ is a homeomorphism thus induce isomorphisms in homology module (chains), therefore the diagrams commutes.
+    \item[b)] Use the commutativity and notice that $H_{n}(S^0)\rightarrow H_{n}(S^0)$ is literally flipping sign of two points, therefore the composition ...
+    \item[c)] Use results from b) we know the $n+1$-th $H_n(\tau_n)$ are all deduced from $n$-th maps, thus after composition...
+    \item[d)] you know ... 
+\end{itemize}
+
+
+\end{document}
