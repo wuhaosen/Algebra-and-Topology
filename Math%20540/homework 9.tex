@@ -18,6 +18,10 @@
 \usepackage{enumerate}
 \usepackage{tikz-cd}
 
+\newenvironment{forcedcentertikzcd}
+ {\begin{lrbox}{\forcedcentertikzcdbox}\begin{tikzcd}}
+ {\end{tikzcd}\end{lrbox}\makebox[0pt]{\usebox{\forcedcentertikzcdbox}}}
+\newsavebox{\forcedcentertikzcdbox}
 
 
 %%\setrightmargin{1in}
@@ -69,22 +73,58 @@
 
 \begin{document}
 \begin{center}
-    \begin{Large} {\bf Math 540 Homework 9, 10?}\\
+    \begin{Large} {\bf Math 540 Homework 9}\\
     \end{Large}
     Haosen Wu  / Wed, Nov.14 , 2018
 \end{center}
 %\vspace{10mm}
 
-
 \subsection*{1}
-Some computation and as Hatcher gives: $H$ == commutative diagrams.
-\begin{itemize}
-\end{itemize}
+Since $A$ is contractible, $H_{n}(A)=0$ for all $n\not = 0$,  we have diagram below:
+
+\begin{center}
+\begin{tikzcd}
+  \cdots \rar   & 0 \rar & H_{n+1}(X) \rar & H_{n+1}(X,A)
+          \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
+        & 0 \rar & H_{n}(X) \rar & H_{n}(X,A)
+          \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
+        & 0  \rar & H_{n-1}(X) M \rar & H_{n-1}(X,A) \rar & ...
+\end{tikzcd}
+\end{center}
+
+The sequence about is exact, so we indeed have
+
+\begin{center}
+\begin{tikzcd}
+   0 \rar & H_{n+1}(X) \rar & H_{n+1}(X,A) \rar & 0
+\end{tikzcd} 
+\end{center}
+
+as an exact short $4$ sequence the middle morphism has to be isomorphism, then claim follows. (dealt with $1$ carefully?)
 
 
 \subsection*{2}
+Let us restrict $n\geq 2$
+
+Since $A\subset X$ are both contractible, $H_{n}(A)=H_{n}(X)=0$ for all $n\not = 0$. We again use the long exact sequence from 1) with replaced $H_{n}(X)=0$, so we obtained short exact "4" sequence:
+
+\begin{center}
+\begin{tikzcd}
+   0 \rar & 0 \rar & H_{n+1}(X,A) \rar & 0
+\end{tikzcd}  
+\end{center}
+
+This isomorphism of forces $H_{n+1}(X)= H_{n+1}(X,A)=0$. Therefore we acquired desired $ H_{n+1}(X,A)=0=H_{n}(A)$. \\
+
+Now let $n=1$, in general, from short $4$ isomorphism we have $ H_{1}(X,A)\cong H_1(X) =0$, yet from the theorem in Chapter 7, $H_{n}(A)=R$ where $R$ is the coefficient ring. Therefore the claim fails when $n=1$, however, if the space$=\empty$ it holds.  
+
+(:Less \textit{a priori} but conclusion holds.)
+
+
+\subsection*{3}
 We know the deformation retraction of $A$ and $X$ are corresponding to isomorphic homology modules of $H_{n}(A)=H_{n}(X)$, therefore we adopt the (long) exact sequence given as:
 
+\begin{center}
 \begin{tikzcd}
   \cdots \rar   & H_{n+1}(A) \rar & H_{n+1}(X) \rar & H_{n+1}(X,A)
           \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
@@ -92,17 +132,56 @@ We know the deformation retraction of $A$ and $X$ are corresponding to isomorphi
           \ar[out=0, in=180, looseness=2, overlay]{dll}   & \\
         & H_{n-1}(A)  \rar & H_{n-1}(X) M \rar & H_{n-1}(X,A) \rar & ...
 \end{tikzcd} 
+\end{center}
 
-Now we find $H_{n}(X,A)$: Name $H_{n+1}(A)=H_{n+1}(X)=M$ if dimension is one down then $M^{(1)}$, we have some information: $$ker(H_{n+1}(A)\rightarrow H_{n+1}(X))=Im(0\rightarrow H_{n+1}(A))=0 $$ and $$M/\{0\}=Im(H_{n+1}(A)\rightarrow H_{n+1}(X))=ker(H_{n+1}(X)\rightarrow H_{n+1}(X,A))=M $$
+Now we find $H_{n}(X,A)$: Name $H_{n+1}(A)=H_{n+1}(X)=M$ if dimension is one down then $M^{(1)}$, we have some information: $$ker(H_{n+1}(A)\rightarrow H_{n+1}(X))=Im(0\rightarrow H_{n+1}(A))=0 $$ and $$M/\{0\}=Im(H_{n+1}(A)\rightarrow H_{n+1}(X))=ker(H_{n+1}(X)\rightarrow H_{n+1}(X,A))=M $$ \\
 
 Apply Isomorphism theorem, $$Im(H_{n+1}(A)\rightarrow H_{n+1}(X,A))=ker(H_{n+1}(X,A)\rightarrow H_{n}(A))=\{0\}$$
-Thus $$H_{n+1}(X,A)/\{0\}=Im(H_{n+1}(X,A)\rightarrow H_{n}(A))=ker(H_{n}(A)\rightarrow H_{n}(X))=\{0\}$$
-Eventually we have $$H_{n+1}(X,A)=\{0\}$$.
+Thus $$H_{n+1}(X,A)/\{0\}=Im(H_{n+1}(X,A)\rightarrow H_{n}(A))=ker(H_{n}(A)\rightarrow H_{n}(X))=\{0\}$$ \\
 
-As our $n$ is arbitrarily chosen, the claim follows. 
+Eventually we have $H_{n+1}(X,A)=\{0\}$. As our $n$ is arbitrarily chosen, the claim follows. 
+ 
+ 
+\subsection*{4 Fun}
+Some computation and as Hatcher gives commutative diagrams.
+\begin{itemize}
+\item[a)] 
+    \begin{itemize}
+        \item[i)] $\p{c_2}=-\p{c_1}$ is equivalently $\p{(c_2+c_1)}=0$. We see the element $\p{c_2}$ is an element in $C_{n-1}(X_1)$ and $C_{n-1}(X_1)$ which precisely is in $C_{n-1}(X_1\cap X_2)$
+        \item[ii)] We know $c_2-C_{12}=\p c_2'$ since left element is a boundary term. then cls
+        \item[iii)] cls use ii)
+        \item[iv)] Show $[c_1+c_2]=0$: that is to show $[c_1+c_2]$ is exact but we have $$c_1+c_2=c_1+C_2=\p c= \p c_2''+\p c_1'+\p\p c''+\p c_2'=\p(c_2'+c_2'')+\p c_1'$$ 
+        
+         Since the element in the kernel is precisely $0$ the map is injective,
+    \end{itemize}
+    
+\item[b)] It is a long and tedious job to repeat part a) so we hand the job to Allen Hatcher who performed an excellent job on this, Hooray! ......
+\end{itemize}
 
 
-\subsection*{3 Fun}
+\subsection*{5 Fun}
+\begin{itemize}
+    \item [a)] We know the deformation retraction of $\R^m-\{x_0\}$ and $\R^n-\{x_0\}$ are corresponding to $S^{m-1}$ and $S^{n-1}$, but the homology modules of $S^{m-1}$ and $S^{n-1}$ are known to be different. If such homeomorphism exists then homology modules as homotopy invariant will be congruent. This reveals a contradiction.
+    
+    \item [b)] Continue the fashion of contradiction, suppose such homeomorphism exists then homology modules $H_{n}(R^m)=H_{n}(R^m)$, therefore also holds for their relative homology  $H_{n}(R^m,\{x_0\})=H_{n}(R^n,\{y_0\})$, since the point itself is a deformation retraction, we thus have $$H_{n}(R^m,\{x_0\})=H_{n}(R^m-\{x_0\},\{x_0\}-\{x_0\})=H_{n}(R^n-\{y_0\},\{y_0\}-\{y_0\})=H_{n}(R^n,\{y_0\})$$ 
+    We notice, therefore $H_{n}(R^m-\{x_0\})=H_{n}(R^n-\{y_0\})$, but this contradicts with the conclusion in the previous statement.
+\end{itemize}
+
+--------------
+
+
+
+\end{document}
+
+\subsection*{ }
+\begin{itemize}
+    \item [a)] the map $\tau_n$ is a homeomorphism thus induce isomorphisms in homology module (chains), therefore the diagrams commutes.
+    \item[b)] Use the commutativity and notice that $H_{n}(S^0)\rightarrow H_{n}(S^0)$ is literally flipping sign of two points, therefore the composition ...
+    \item[c)] Use results from b) we know the $n+1$-th $H_n(\tau_n)$ are all deduced from $n$-th maps, thus after composition...
+    \item[d)] you know ... 
+\end{itemize}
+
+\subsection*{ }
 \begin{itemize}
     \item [a)] map $i_{Y\rightarrow X}$ defines a natural inclusion of chain module $i_{Y\rightarrow X}^*: C_n(Y)\rightarrow C_n(X)$, then they descends to $$\Tilde{i}_{Y\rightarrow X}^*: C_n(Y)/C_n(Z)\rightarrow C_n(X)/C_n(Z)$$; similarly we have $$\Tilde{p}_{Z\rightarrow X}^*: C_n(X)/C_n(Z)\rightarrow C_n(X)/C_n(Y)$$. 
     
@@ -116,24 +195,3 @@ As our $n$ is arbitrarily chosen, the claim follows.
     
     \item[c)] We explicitly expand the short exact sequences from b) together then apply snake lemma to obtain the long exact sequence.
 \end{itemize}
-
-
-\subsection*{4 Fun}
-\begin{itemize}
-    \item [a)] We know the deformation retraction of $\R^m-\{x_0\}$ and $\R^n-\{x_0\}$ are corresponding to $S^{m-1}$ and $S^{n-1}$, but the homology modules of $S^{m-1}$ and $S^{n-1}$ are known to be different. If such homeomorphism exists then homology modules as homotopy invariant will be congruent. This reveals a contradiction.
-    
-    \item [b)] Continue the fashion of contradiction, suppose such homeomorphism exists then homology modules $H_{n}(R^m)=H_{n}(R^m)$, therefore also holds for their relative homology  $H_{n}(R^m,\{x_0\})=H_{n}(R^n,\{y_0\})$, since the point itself is a deformation retraction, we thus have $$H_{n}(R^m,\{x_0\})=H_{n}(R^m-\{x_0\},\{x_0\}-\{x_0\})=H_{n}(R^n-\{y_0\},\{y_0\}-\{y_0\})=H_{n}(R^n,\{y_0\})$$ 
-    We notice, therefore $H_{n}(R^m-\{x_0\})=H_{n}(R^n-\{y_0\})$, but this contradicts with the conclusion in the previous statement.
-\end{itemize}
-
-
-\subsection*{5}
-\begin{itemize}
-    \item [a)] the map $\tau_n$ is a homeomorphism thus induce isomorphisms in homology module (chains), therefore the diagrams commutes.
-    \item[b)] Use the commutativity and notice that $H_{n}(S^0)\rightarrow H_{n}(S^0)$ is literally flipping sign of two points, therefore the composition ...
-    \item[c)] Use results from b) we know the $n+1$-th $H_n(\tau_n)$ are all deduced from $n$-th maps, thus after composition...
-    \item[d)] you know ... 
-\end{itemize}
-
-
-\end{document}
